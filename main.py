@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, logging
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
@@ -15,6 +15,12 @@ from db.init_db import init_db
 bot = Bot(token=config.BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))  # Инит бота
 storage = MemoryStorage()   # Место хранения БД
 dp = Dispatcher()   # Диспетчер обновлений для управления логикой бота
+
+# Логирование
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
 
 
 async def main():

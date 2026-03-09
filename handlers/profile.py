@@ -48,7 +48,7 @@ async def process_age(message: Message, state: FSMContext):
 
     await state.update_data(age=int(message.text))
 
-    await message.answer("🤸 Сколько времени за день вы проводите в активном состоянии?")
+    await message.answer("🤸 Сколько времени за день вы проводите в активном состоянии (в минутах)?")
     await state.set_state(ProfileStates.activity)
 
 
@@ -68,7 +68,7 @@ async def process_city(message: Message, state: FSMContext):
     await state.update_data(city=message.text)
 
     await message.answer(
-        "Сколько калорий за день вы хотите тратить? \n\n"
+        "Сколько калорий за день вы хотите тратить (в минутах)? \n\n"
         "Если не знаете, то напишите 'Не знаю':"
     )
     await state.set_state(ProfileStates.calorie_goal)
